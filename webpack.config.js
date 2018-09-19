@@ -88,5 +88,5 @@ module.exports={
     new UglifyJsPlugin({ sourceMap: true }),
 
 ],
-    mode: 'production'
+    mode: 'development'
 }

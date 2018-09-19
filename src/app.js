@@ -1,19 +1,34 @@
-import React from 'react';
-import './app.css';
-
-import img from '../public/assets/download.png'
+import React from 'react'
+import InCreditor from './InCreditor'
+import InDebtor from './InDebtor'
+import SumDebt from './SumDebt'
+import RadioForfeit from './RadioForfeit'
+import CalcForfeit from './CalcOfForfeit/CalcForfeit'
+import { connect } from 'react-redux'
 
 class App extends React.Component{
-    render(){
-        return(
-            <div className="app">
-             <h1>Hello React</h1>
-               <img src={img} className="img"/>
 
+    render(){
+        const { isOpenCalcForfeit } = this.props
+
+        return(
+            <div className="container">
+                <InCreditor/>
+                <InDebtor/>
+                <RadioForfeit/>
+                <SumDebt />
+                {isOpenCalcForfeit ? <CalcForfeit /> : null}
             </div>
         )
     }
 }
 
 
-export default App;
+const mapStateToProps = store => {
+    return {
+        isOpenCalcForfeit: store.isOpenCalcForfeit,
+    }
+}
+
+
+export default connect(mapStateToProps)(App)
