@@ -1,10 +1,10 @@
 {
-  "name": "reactscratch",
+  "name": "",
   "version": "1.0.0",
-  "description": "Create react app from scratch",
+  "description": "",
   "keywords": [
     "react-app",
-    "scratch"
+    ""
   ],
   "main": "index.js",
   "scripts": {
