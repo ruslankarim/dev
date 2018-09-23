@@ -1,7 +1,8 @@
-export const initialState = {
-    isOpenCalcForfeit: false,
-}
+import { combineReducers } from 'redux'
+import { AppReducer } from './AppReducer'
 
-export function rootReducer(state = initialState) {
-    return state
-}
+
+
+export const rootReducer = combineReducers({
+    App: AppReducer
+})

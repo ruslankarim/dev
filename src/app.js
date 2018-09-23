@@ -2,22 +2,50 @@ import React from 'react'
 import InCreditor from './InCreditor'
 import InDebtor from './InDebtor'
 import SumDebt from './SumDebt'
-import RadioForfeit from './RadioForfeit'
+import RadioIsForfeit from './RadioIsForfeit'
 import CalcForfeit from './CalcOfForfeit/CalcForfeit'
+import InYourselfForfeit from './InYourselfForfeit'
+import InRequisitesContract from './InRequisitesContract'
+import InClauseContract from './InClauseContract'
+import RadioCalcForfeit from './RadioCalcForfeit'
+import TextBreachObligations from './TextBreachObligations'
+import RadioPercent from './RadioPercent'
+import RadioForfeitPercent from './RadioForfeitPercent'
+import {setOpenRadioCalcForfeit,
+        setOpenRadioPercent,
+        setOpenRadioPercentForfeit,
+        setNoPercentForfeit } from './actions/ActionIsOpenRadioCalcForfeit'
+
 import { connect } from 'react-redux'
 
 class App extends React.Component{
 
     render(){
-        const { isOpenCalcForfeit } = this.props
+        const { App,
+            setOpenRadioCalcForfeitAction,
+            setOpenRadioPercentAction,
+            setOpenRadioPercentForfeitAction,
+            setNoPercentForfeitAction
+        } = this.props
 
         return(
             <div className="container">
                 <InCreditor/>
                 <InDebtor/>
-                <RadioForfeit/>
+                <TextBreachObligations />
+                <RadioIsForfeit
+                    setOpenRadioCalcForfeitAction={setOpenRadioCalcForfeitAction}
+                    setOpenRadioPercentAction={setOpenRadioPercentAction}
+                    setOpenRadioPercentForfeitAction={setOpenRadioPercentForfeitAction}
+                    setNoPercentForfeitAction={setNoPercentForfeitAction}/>
+                {App.isOpenRadioCalcForfeit ? <RadioCalcForfeit /> : null}
+                {App.isOpenRadioPercent ? <RadioPercent /> : null}
+                {App.isOpenRadioForfeitPercent ? <RadioForfeitPercent /> : null}
                 <SumDebt />
-                {isOpenCalcForfeit ? <CalcForfeit /> : null}
+                {App.isOpenInYourselfForfeit ? <InYourselfForfeit /> : null}
+                {App.isOpenCalcForfeit ? <CalcForfeit /> : null}
+                <InRequisitesContract />
+                <InClauseContract />
             </div>
         )
     }
@@ -25,10 +53,21 @@ class App extends React.Component{
 
 
 const mapStateToProps = store => {
+
     return {
-        isOpenCalcForfeit: store.isOpenCalcForfeit,
+        App: store.App,
+
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setOpenRadioCalcForfeitAction: () => dispatch(setOpenRadioCalcForfeit()),
+        setOpenRadioPercentAction: () => dispatch(setOpenRadioPercent()),
+        setOpenRadioPercentForfeitAction: () => dispatch(setOpenRadioPercentForfeit()),
+        setNoPercentForfeitAction: () => dispatch(setNoPercentForfeit())
     }
 }
 
 
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

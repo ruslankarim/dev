@@ -7,9 +7,6 @@ class ModalSwitchesForfeit extends React.Component {
     render(){
         return(
             <div>
-
-
-
                 <div id="modal1" className="modal">
                     <div className="modal-content">
                         <h4>Расчет неустойки</h4>
