@@ -16,7 +16,7 @@ export function setOpenRadioPercentForfeit() {
     }
 }
 
-export function setNoPercentForfeit() {
+ export function setNoPercentForfeit() {
     return {
         type: 'SET_NO_PERCENT_FORFEIT'
     }
