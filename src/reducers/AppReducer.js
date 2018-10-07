@@ -1,4 +1,6 @@
 const initialState = {
+    isOpenInSumDebt: false,
+
     isOpenRadioCalcForfeit: false,
     isOpenInYourselfForfeit: false,
     isOpenCalcForfeit: false,

@@ -1,6 +1,6 @@
 import React from 'react'
 import M from 'materialize-css'
-import Dadata from './dadata/dadata'
+import Dadata from '../dadata/dadata'
 
 class InDebtor extends React.Component{
 
@@ -16,7 +16,7 @@ class InDebtor extends React.Component{
     }
     render(){
         return(
-            <div className="row">
+            <div className="row section">
                 <div className="col s12">
                     <div className="row">
                         <div className="input-field col s12">

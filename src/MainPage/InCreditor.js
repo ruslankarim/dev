@@ -8,7 +8,7 @@ class InCreditor extends React.Component {
 
     render(){
         return(
-            <div className = "row">
+            <div className = "row section">
                 <div className="input-field col s12">
                     <select id="select-creditor">
                         <option value="" disabled selected>Выберете кредитора</option>

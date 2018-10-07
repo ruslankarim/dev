@@ -36,8 +36,9 @@ class InRequisitesContract extends React.Component {
 
     render(){
         return(
-            <div className="row">
+            <div className="row section">
                 <form className="col s12">
+                    <legend><h6>Реквизиты договора:</h6></legend>
                     <div className="row">
                         <div className="input-field col s6">
                             <input id="dateContract" type="text" className="datepicker"/>
